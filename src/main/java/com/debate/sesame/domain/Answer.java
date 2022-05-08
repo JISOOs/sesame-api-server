@@ -8,6 +8,7 @@ import java.util.List;
 @Entity
 @Table(name = "answer")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 public class Answer {
 
     @Id
@@ -16,14 +17,15 @@ public class Answer {
     private Long id;
 
     @Column(name ="gender")
-    private String gender;
+    @Convert(converter = GenderConverter.class)
+    private Gender gender;
 
     @ElementCollection
     @Column(name ="answer")
     private List<Integer> answerList;
 
     @Builder
-    public Answer(Long id, String gender, List<Integer> answerList) {
+    public Answer(Long id, Gender gender, List<Integer> answerList) {
         super();
         this.id = id;
         this.gender = gender;

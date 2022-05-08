@@ -1,6 +1,7 @@
 package com.debate.sesame.web.dto;
 
 import com.debate.sesame.domain.Answer;
+import com.debate.sesame.domain.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class StatisticsRequestDto {
     private Long id;
-    private String gender;
+    private Gender gender;
     private List<Integer> answerList;
 
     public Answer toEntity() {
